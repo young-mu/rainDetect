@@ -1,0 +1,15 @@
+{
+    "name": "raindetect",
+    "version": "0.1.0",
+    "description": "",
+    "author": "",
+    "main": "src/index.js",
+    "ruff": {
+        "dependencies": {
+            "zh-rain-rs485": "*",
+            "tencent-iot-device-mqtt": "^0.0.2",
+            "bell": "*"
+        },
+        "version": 1
+    }
+}
