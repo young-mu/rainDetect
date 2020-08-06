@@ -6,9 +6,9 @@
     "main": "src/index.js",
     "ruff": {
         "dependencies": {
-            "zh-rain-rs485": "*",
+            "zh-rain-rs485": "^0.1.1",
             "tencent-iot-device-mqtt": "^0.0.2",
-            "bell": "*"
+            "bell": "^0.1.0"
         },
         "version": 1
     }

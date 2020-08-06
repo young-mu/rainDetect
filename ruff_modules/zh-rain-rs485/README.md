@@ -1,49 +1,58 @@
-# {device-name} Driver
-
-Driver description if have.
+# Rain Sensor Driver
 
 ## Device Model
 
-- [{device-model}](https://rap.ruff.io/devices/{device-model})
-
-> You can name {device-model} by {model-name} like gy-30 or {chip-name}-({interface}) like ssd1306-i2c.
+- [ZH-RAIN-RS485](https://rap.ruff.io/devices/ZH-RAIN-RS485)
 
 ## Install
 
 ```sh
-> rap device add --model {device-model} --id <device-id> 
+> rap device add --model ZH-RAIN-RS485 --id <device-id>
 ```
 
 ## Demo
 
-Supposed \<device-id\> is `xxx` in the following demos.
+Supposed \<device-id\> is `rain` in the following demos.
 
 ```js
-$('#xxx').func();
+$('#rain').readRain(function (error, hasRain) {
+    if (error) {
+        console.log('error is', error);
+        return;
+    }
+
+    if (hasRain) {
+        console.log('has rain');
+    } else {
+        console.log('no rain');
+    }
+});
 ```
-
-> It will be better if you attach some pictures of your device demo.**
-
-<div align="center">
-<img src="https://xxx" width = "100" height = "100" alt="device demo" />
-</div>
 
 ## API References
 
 ### Methods
 
-#### `func()`
+#### `readRain(callback(error, hasRain))`
 
-The function of method func().
+Read if there is rain or not, `hasRain = 1` means rain, `hasRain = 0` means no rain.
 
-### Properties (opt.)
+#### `readHeat(callback(error, heatStart, heatEnd))`
 
-### Events (opt.)
+Read the heat to start and heat to end, the range of them is [0, 40}.
+
+#### `changeHeatStart(value, callback(error))`
+
+Change the value of heat to start, it must be lower than heat to end.
+
+#### `changeHeatEnd(value, callback(error))`
+
+Change the value of heat to end, it must be higher than heat to start.
 
 ## Supported OS
 
-Test passed on Ruff v1.6.0 and Ruff Lite v0.6.0
+Test passed on Ruff v1.11.3
 
 ## Note
 
-Some notes about device or driver if have.
+Needs a TTL-RS485 conveter

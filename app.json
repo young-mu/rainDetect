@@ -2,7 +2,7 @@
     "devices": [
         {
             "id": "rain",
-            "model": "rain",
+            "model": "ZH-RAIN-RS485",
             "driver": "zh-rain-rs485",
             "inputs": {
                 "uart": {
@@ -19,7 +19,7 @@
         },
         {
             "id": "bell",
-            "model": "bell",
+            "model": "BELL",
             "driver": "bell",
             "inputs": {
                 "gpio": {
